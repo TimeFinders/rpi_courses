@@ -33,13 +33,8 @@ def list_sis_files_for_date(date=None, url_base=SIS_URL):
     months = (1, 5, 9)
     prev_m = None
     for m in months:
-        if m >= date.month:
+        if m <= date.month:
             base.append(format % (url_base, date.year, m))
-            if prev_m and prev_m < date.month:
-                base.append(format % (url_base, date.year, prev_m))
-        prev_m = m
-    if not base:
-        base.append(format % (url_base, date.year + 1, 1))
     return base
 
 
