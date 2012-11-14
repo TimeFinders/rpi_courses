@@ -35,7 +35,7 @@ def list_sis_files_for_date(date=None, url_base=SIS_URL):
     for m in months:
         if m <= date.month:
             base.append(format % (url_base, date.year, m))
-    return base
+    return [max(base)]
 
 
 def list_sis_files(url_base=SIS_URL):
